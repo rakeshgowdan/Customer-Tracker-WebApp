@@ -24,9 +24,16 @@ public class CustomerDaoImple implements CustomerDAO {
 	public List<Customer> getCustomers() {
 		
 		Session session=sf.getCurrentSession();
-		Query<Customer> theQuery=session.createQuery("from Customer",Customer.class);
+		Query<Customer> theQuery=session.createQuery("from Customer order by first_name",Customer.class);
 		List<Customer> list=theQuery.getResultList();
 		return list;
+	}
+
+	@Override
+	public boolean addCustomer(Customer c) {
+		Session session=sf.getCurrentSession();
+		session.save(c);
+		return true;
 	}
 
 }

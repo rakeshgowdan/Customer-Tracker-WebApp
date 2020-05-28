@@ -20,6 +20,9 @@
 	
 	<div id="container">
 		<div id="content">
+		<div align="center">
+		<input  class="add-button" type="button" value="Add Customer" onclick="window.location.href='showAddCustomer'"/>
+			</div>
 			<table>
 				
 					<caption></caption>

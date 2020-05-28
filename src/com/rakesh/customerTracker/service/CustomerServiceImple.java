@@ -23,4 +23,11 @@ public class CustomerServiceImple implements CustomerService {
 		return customerDAO.getCustomers();
 	}
 
+	@Override
+	@Transactional
+	public boolean addCustomer(Customer c) {
+		
+		return customerDAO.addCustomer(c);
+	}
+
 }

@@ -6,13 +6,18 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Customer-Tracker</title>
+<link type="text/css"
+		rel="stylesheet"
+		href="${pageContext.request.contextPath}/resources/css/style.css"/>
 </head>
 <body>
+<div align="center">
 	<div id="wrapper">
 		<div id="header">
 			<h3>CRM-Customer Relational Mapping</h3>
 		</div>
 	</div>
+	
 	<div id="container">
 		<div id="content">
 			<table>
@@ -41,6 +46,6 @@
 	</div>
 
 
-
+</div>
 </body>
 </html>

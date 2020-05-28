@@ -21,7 +21,6 @@ public class CustomerDaoImple implements CustomerDAO {
 	private SessionFactory sf;
 	
 	@Override
-	@Transactional
 	public List<Customer> getCustomers() {
 		
 		Session session=sf.getCurrentSession();

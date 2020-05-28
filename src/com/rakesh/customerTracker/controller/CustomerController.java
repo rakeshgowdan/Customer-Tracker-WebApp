@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.rakesh.customerTracker.DAO.CustomerDAO;
 import com.rakesh.customerTracker.entity.Customer;
+import com.rakesh.customerTracker.service.CustomerService;
 
 @Controller
 @RequestMapping("Customer")
 public class CustomerController {
 	
 	@Autowired
-	private CustomerDAO customer;
+	private CustomerService customer;
 	
 	@GetMapping("/list")
 	public String showAllCustomers(Model model) {

@@ -25,9 +25,22 @@ public class CustomerServiceImple implements CustomerService {
 
 	@Override
 	@Transactional
-	public boolean addCustomer(Customer c) {
+	public void addCustomer(Customer c) {
+		 customerDAO.addCustomer(c);
+	}
+
+	@Override
+	@Transactional
+	public Customer getCustomerByID(int id) {
 		
-		return customerDAO.addCustomer(c);
+		return customerDAO.getCustomerByID(id);
+	}
+
+	@Override
+	@Transactional
+	public void deleteCustomer(int id) {
+		customerDAO.deleteCustomer(id);
+		
 	}
 
 }

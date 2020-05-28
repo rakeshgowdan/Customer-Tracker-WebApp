@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rakesh.customerTracker.DAO.CustomerDAO;
 import com.rakesh.customerTracker.entity.Customer;
@@ -38,8 +39,24 @@ public class CustomerController {
 	}
 	@PostMapping("/saveCustomer")
 	public String addCustomer(@ModelAttribute("customer") Customer theCustomer) {
+		
+		
 		customer.addCustomer(theCustomer);
 		return "redirect:/Customer/list";
+	}
+	@GetMapping("/showFormForUpdate")
+	public String showFormForUpdate(@RequestParam("customerId")int theId,Model themodel) {
+		
+		Customer theCustomer=customer.getCustomerByID(theId);
+		themodel.addAttribute("customer", theCustomer);
+		return "Add-Customer";
+		
+	}
+	@GetMapping("/deleteCustomer")
+	public String deleteCustomer(@RequestParam("customerId")int id) {
+		customer.deleteCustomer(id);
+		return "redirect:/Customer/list";
+		
 	}
 
 }

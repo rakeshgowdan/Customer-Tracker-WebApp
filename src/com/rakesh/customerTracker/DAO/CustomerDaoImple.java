@@ -30,10 +30,25 @@ public class CustomerDaoImple implements CustomerDAO {
 	}
 
 	@Override
-	public boolean addCustomer(Customer c) {
+	public void addCustomer(Customer c) {
 		Session session=sf.getCurrentSession();
-		session.save(c);
-		return true;
+		
+		session.saveOrUpdate(c);
+	}
+
+	@Override
+	public Customer getCustomerByID(int id) {
+		Session S=sf.getCurrentSession();
+		Customer theCustomer=S.get(Customer.class, id);
+		return theCustomer;
+	}
+
+	@Override
+	public void deleteCustomer(int id) {
+		Session s=sf.getCurrentSession();
+		Query theQuery=s.createQuery("delete from Customer where id=:customerId");
+		theQuery.setParameter("customerId",id);
+		theQuery.executeUpdate();
 	}
 
 }
